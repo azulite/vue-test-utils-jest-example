@@ -1,15 +1,40 @@
-import { shallow } from 'vue-test-utils'
+import { mount } from '@vue/test-utils'
 import MessageToggle from '@/components/MessageToggle.vue'
-import Message from '@/components/Message'
+// import Message from '@/components/Message'
 
 describe('MessageToggle.vue', () => {
-  it('toggles msg passed to Message when button is clicked', () => {
-    const wrapper = shallow(MessageToggle)
-    const button = wrapper.find('#toggle-message')
-    button.trigger('click')
-    const MessageComponent = wrapper.find(Message)
-    expect(MessageComponent.hasProp('msg', 'message')).toBe(true)
-    button.trigger('click')
-    expect(MessageComponent.hasProp('msg', 'toggled message')).toBe(true)
+  let wrapper
+  // const spy = sinon.spy()
+
+  // beforeEach(() => {
+  //   wrapper = mount(MessageToggle, {
+  //     // Beaware that props is overriden using `propsData`
+  //     propsData: {
+  //       msg: 'message'
+  //     }
+  //   })
+  // })
+  beforeEach(() => {
+    wrapper = mount(MessageToggle, {
+      // Beaware that props is overriden using `propsData`
+      propsData: {
+        msg: 'message'
+      }
+    })
+  })
+
+  // it('toggles msg passed to Message when button is clicked', () => {
+  //   const button = wrapper.find('#toggle-message')
+  //   button.trigger('click')
+  //   spy.should.have.been.calledWith('yes')
+  //   // expect(button.called).toBe(true)
+  //   expect(wrapper.props().msg).toBe('message')
+  //   button.trigger('click')
+  //   // expect(button.called).toBe(true)
+  //   expect(wrapper.props().msg).toBe('toggled message')
+  // })
+
+  it('has the expected html structure', () => {
+    expect(wrapper.element).toMatchSnapshot()
   })
 })

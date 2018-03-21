@@ -1,6 +1,6 @@
 import {
   shallow
-} from 'vue-test-utils'
+} from '@vue/test-utils'
 import List from '@/components/List.vue'
 import {
   createRenderer

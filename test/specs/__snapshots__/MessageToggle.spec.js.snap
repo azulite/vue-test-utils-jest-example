@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageToggle.vue has the expected html structure 1`] = `
+<div>
+  <h1>
+    default message
+  </h1>
+   
+  <button
+    id="toggle-message"
+  >
+    
+  Change message
+ 
+  </button>
+</div>
+`;
